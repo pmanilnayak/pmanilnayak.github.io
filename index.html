@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anil Kumar Nayak - Project Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,19 +16,21 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
         }
         
         .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .profile-section {
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            padding: 60px 40px;
+            padding: 40px;
             text-align: center;
-            max-width: 600px;
+            margin-bottom: 40px;
             animation: slideIn 0.6s ease-out;
         }
         
@@ -42,67 +45,60 @@
             }
         }
         
-        .profile-header {
-            margin-bottom: 40px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
         
         .profile-avatar {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             margin: 0 auto 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
+            font-size: 42px;
             color: white;
             font-weight: bold;
             box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
         }
         
         h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             color: #333;
             margin-bottom: 10px;
             font-weight: 700;
         }
         
         .designation {
-            font-size: 1.5em;
+            font-size: 1.3em;
             color: #667eea;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-weight: 600;
         }
         
         .contact-section {
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 20px;
+            display: inline-block;
         }
         
         .contact-item {
-            margin-bottom: 20px;
-            font-size: 1.1em;
-        }
-        
-        .contact-item:last-child {
-            margin-bottom: 0;
+            display: inline-block;
+            margin: 0 20px;
+            font-size: 1em;
         }
         
         .label {
             color: #667eea;
             font-weight: 600;
-            display: inline-block;
-            width: 120px;
-            text-align: right;
-            margin-right: 15px;
-        }
-        
-        .value {
-            color: #333;
-            font-weight: 500;
         }
         
         .phone-link {
@@ -116,64 +112,699 @@
             color: #764ba2;
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
+        /* Projects Section */
+        .projects-section {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideIn 0.8s ease-out;
         }
         
-        .social-link {
-            display: inline-block;
-            width: 45px;
-            height: 45px;
+        .section-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-radius: 50%;
-            text-decoration: none;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .section-header h2 {
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .section-header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .projects-grid {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .project-icon {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .project-name {
+            font-size: 1.5em;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .project-description {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .project-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            flex: 1;
+            min-width: 70px;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.85em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            gap: 5px;
+            text-decoration: none;
         }
         
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+        .btn-view {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-view:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-redirect {
+            background: #764ba2;
+            color: white;
+        }
+        
+        .btn-redirect:hover {
+            background: #63408a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+        
+        .btn-detail {
+            background: #f0f0f0;
+            color: #667eea;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .btn-detail:hover {
+            background: #e8e8e8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-team {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-team:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .action-btn i {
+            font-size: 1.1em;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .close {
+            color: #999;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        .modal-title {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .modal-text {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+        
+        .team-member {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .team-member i {
+            color: #667eea;
+            font-size: 1.3em;
         }
         
         .footer {
-            color: #999;
-            font-size: 0.9em;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+            text-align: center;
+            color: white;
+            padding: 30px;
+            font-size: 0.95em;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .contact-item {
+                display: block;
+                margin: 8px 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="profile-header">
+        <!-- Profile Section -->
+        <div class="profile-section">
             <div class="profile-avatar">AN</div>
             <h1>Anil Kumar Nayak</h1>
             <div class="designation">Project Manager</div>
+            <div class="contact-section">
+                <div class="contact-item">
+                    <span class="label">📱 Mobile:</span>
+                    <a href="tel:+917978954419" class="phone-link">+91 7978954419</a>
+                </div>
+            </div>
         </div>
         
-        <div class="contact-section">
-            <div class="contact-item">
-                <span class="label">Mobile:</span>
-                <span class="value"><a href="tel:+917978954419" class="phone-link">+91 7978954419</a></span>
+        <!-- Projects Section -->
+        <div class="projects-section">
+            <div class="section-header">
+                <h2>📊 Managed Projects</h2>
+                <p>Portfolio of projects successfully delivered by PM Anil Nayak</p>
             </div>
-            <div class="contact-item">
-                <span class="label">Email:</span>
-                <span class="value"><a href="mailto:pmanilnayak@gmail.com" class="phone-link">Get in Touch</a></span>
+            
+            <div class="projects-grid">
+                <!-- BHIM Project -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-name">BHIM</div>
+                    <div class="project-description">
+                        Digital Payment Platform - Secure and Fast Mobile Transactions
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-btn btn-view" onclick="showDetail('bhim')">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                        <a href="https://pmanilnayak.github.io/bhim" class="action-btn btn-redirect" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Redirect
+                        </a>
+                        <button class="action-btn btn-detail" onclick="showDetail('bhim-detail')">
+                            <i class="fas fa-info-circle"></i> Detail
+                        </button>
+                        <button class="action-btn btn-team" onclick="showTeam('bhim')">
+                            <i class="fas fa-users"></i> Team
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- IAAP Project -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="project-name">IAAP</div>
+                    <div class="project-description">
+                        International Accessibility Assurance Program - Compliance & Standards
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-btn btn-view" onclick="showDetail('iaap')">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                        <a href="https://pmanilnayak.github.io/iaap/" class="action-btn btn-redirect" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Redirect
+                        </a>
+                        <button class="action-btn btn-detail" onclick="showDetail('iaap-detail')">
+                            <i class="fas fa-info-circle"></i> Detail
+                        </button>
+                        <button class="action-btn btn-team" onclick="showTeam('iaap')">
+                            <i class="fas fa-users"></i> Team
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Crowdtesting Project -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="project-name">Crowdtesting</div>
+                    <div class="project-description">
+                        Distributed Testing Platform - Quality Assurance at Scale
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-btn btn-view" onclick="showDetail('crowdtesting')">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                        <a href="https://pmanilnayak.github.io/crowdtesting" class="action-btn btn-redirect" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Redirect
+                        </a>
+                        <button class="action-btn btn-detail" onclick="showDetail('crowdtesting-detail')">
+                            <i class="fas fa-info-circle"></i> Detail
+                        </button>
+                        <button class="action-btn btn-team" onclick="showTeam('crowdtesting')">
+                            <i class="fas fa-users"></i> Team
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Bench Project -->
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="project-name">Bench</div>
+                    <div class="project-description">
+                        Performance Benchmarking Suite - Analytics & Optimization
+                    </div>
+                    <div class="project-actions">
+                        <button class="action-btn btn-view" onclick="showDetail('bench')">
+                            <i class="fas fa-eye"></i> View
+                        </button>
+                        <a href="https://pmanilnayak.github.io/bench/" class="action-btn btn-redirect" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Redirect
+                        </a>
+                        <button class="action-btn btn-detail" onclick="showDetail('bench-detail')">
+                            <i class="fas fa-info-circle"></i> Detail
+                        </button>
+                        <button class="action-btn btn-team" onclick="showTeam('bench')">
+                            <i class="fas fa-users"></i> Team
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         
         <div class="footer">
-            <p>Professional Portfolio - Actively Available</p>
+            <p>✨ Professionally managed projects delivering excellence | Anil Kumar Nayak - Project Manager</p>
         </div>
     </div>
+    
+    <!-- Modals -->
+    
+    <!-- BHIM View Modal -->
+    <div id="bhimModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bhimModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-mobile-alt"></i> BHIM Project</div>
+            <div class="modal-text">
+                <p><strong>BHIM (Bharat Interface for Money)</strong> is a digital payment platform designed to facilitate fast, secure, and seamless mobile transactions across India.</p>
+                <br>
+                <p><strong>Key Features:</strong></p>
+                <ul style="margin-left: 20px; color: #666;">
+                    <li>Instant money transfers</li>
+                    <li>QR code payments</li>
+                    <li>Bill payments</li>
+                    <li>Mobile recharge & shopping</li>
+                    <li>Bank-level security</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Status:</strong> Active & Managed ✓</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BHIM Detail Modal -->
+    <div id="bhimDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bhimDetailModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-cogs"></i> BHIM - Project Details</div>
+            <div class="modal-text">
+                <p><strong>Project Scope:</strong> Digital Payment Infrastructure</p>
+                <p style="margin-top: 10px;"><strong>Timeline:</strong> Ongoing</p>
+                <p style="margin-top: 10px;"><strong>Focus Areas:</strong></p>
+                <ul style="margin-left: 20px; color: #666; margin-top: 8px;">
+                    <li>Security & Compliance</li>
+                    <li>User Experience Enhancement</li>
+                    <li>Transaction Processing</li>
+                    <li>Customer Support</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Project Manager:</strong> Anil Kumar Nayak</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- IAAP View Modal -->
+    <div id="iaapModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('iaapModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-shield-alt"></i> IAAP Project</div>
+            <div class="modal-text">
+                <p><strong>IAAP (International Accessibility Assurance Program)</strong> ensures digital products meet global accessibility standards and are usable by everyone, including persons with disabilities.</p>
+                <br>
+                <p><strong>Key Focus:</strong></p>
+                <ul style="margin-left: 20px; color: #666;">
+                    <li>WCAG 2.1 Compliance</li>
+                    <li>Accessibility Testing</li>
+                    <li>Standards Implementation</li>
+                    <li>Inclusive Design</li>
+                    <li>Quality Assurance</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Status:</strong> Active & Managed ✓</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- IAAP Detail Modal -->
+    <div id="iaapDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('iaapDetailModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-cogs"></i> IAAP - Project Details</div>
+            <div class="modal-text">
+                <p><strong>Project Scope:</strong> Accessibility Compliance & Standards</p>
+                <p style="margin-top: 10px;"><strong>Timeline:</strong> Ongoing</p>
+                <p style="margin-top: 10px;"><strong>Focus Areas:</strong></p>
+                <ul style="margin-left: 20px; color: #666; margin-top: 8px;">
+                    <li>Accessibility Audits</li>
+                    <li>Standards Certification</li>
+                    <li>Team Training</li>
+                    <li>Documentation & Compliance</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Project Manager:</strong> Anil Kumar Nayak</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Crowdtesting View Modal -->
+    <div id="crowdtestingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('crowdtestingModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-network-wired"></i> Crowdtesting Project</div>
+            <div class="modal-text">
+                <p><strong>Crowdtesting</strong> is a distributed quality assurance platform that leverages a global network of testers to ensure comprehensive product testing at scale.</p>
+                <br>
+                <p><strong>Key Features:</strong></p>
+                <ul style="margin-left: 20px; color: #666;">
+                    <li>Global Testing Network</li>
+                    <li>Real-world Scenarios</li>
+                    <li>Rapid Feedback Loops</li>
+                    <li>Quality Metrics & Reports</li>
+                    <li>Cost-Effective Testing</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Status:</strong> Active & Managed ✓</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Crowdtesting Detail Modal -->
+    <div id="crowdtestingDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('crowdtestingDetailModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-cogs"></i> Crowdtesting - Project Details</div>
+            <div class="modal-text">
+                <p><strong>Project Scope:</strong> Distributed Quality Assurance</p>
+                <p style="margin-top: 10px;"><strong>Timeline:</strong> Ongoing</p>
+                <p style="margin-top: 10px;"><strong>Focus Areas:</strong></p>
+                <ul style="margin-left: 20px; color: #666; margin-top: 8px;">
+                    <li>Test Case Management</li>
+                    <li>Tester Coordination</li>
+                    <li>Bug Tracking & Resolution</li>
+                    <li>Quality Reporting</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Project Manager:</strong> Anil Kumar Nayak</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bench View Modal -->
+    <div id="benchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('benchModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-chart-bar"></i> Bench Project</div>
+            <div class="modal-text">
+                <p><strong>Bench</strong> is a comprehensive performance benchmarking suite designed to analyze, compare, and optimize system performance metrics across applications.</p>
+                <br>
+                <p><strong>Key Features:</strong></p>
+                <ul style="margin-left: 20px; color: #666;">
+                    <li>Performance Metrics Collection</li>
+                    <li>Comparative Analysis</li>
+                    <li>Trend Monitoring</li>
+                    <li>Optimization Recommendations</li>
+                    <li>Real-time Dashboards</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Status:</strong> Active & Managed ✓</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bench Detail Modal -->
+    <div id="benchDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('benchDetailModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-cogs"></i> Bench - Project Details</div>
+            <div class="modal-text">
+                <p><strong>Project Scope:</strong> Performance Analytics & Optimization</p>
+                <p style="margin-top: 10px;"><strong>Timeline:</strong> Ongoing</p>
+                <p style="margin-top: 10px;"><strong>Focus Areas:</strong></p>
+                <ul style="margin-left: 20px; color: #666; margin-top: 8px;">
+                    <li>Data Collection & Processing</li>
+                    <li>Analytics Dashboard Development</li>
+                    <li>Performance Optimization</li>
+                    <li>Reporting & Insights</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Project Manager:</strong> Anil Kumar Nayak</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Team Members Modals -->
+    <div id="bhimTeamModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('bhimTeamModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-users"></i> BHIM - Team Members</div>
+            <div class="modal-text">
+                <p><strong>Project Lead:</strong></p>
+                <div class="team-member">
+                    <i class="fas fa-user-circle"></i>
+                    <span><strong>Anil Kumar Nayak</strong> - Project Manager</span>
+                </div>
+                <p style="margin-top: 20px;"><strong>Core Team:</strong></p>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Development Lead</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>QA Lead</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>DevOps Engineer</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Business Analyst</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="iaapTeamModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('iaapTeamModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-users"></i> IAAP - Team Members</div>
+            <div class="modal-text">
+                <p><strong>Project Lead:</strong></p>
+                <div class="team-member">
+                    <i class="fas fa-user-circle"></i>
+                    <span><strong>Anil Kumar Nayak</strong> - Project Manager</span>
+                </div>
+                <p style="margin-top: 20px;"><strong>Core Team:</strong></p>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Accessibility Specialist</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Compliance Officer</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>QA Tester</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Documentation Lead</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="crowdtestingTeamModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('crowdtestingTeamModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-users"></i> Crowdtesting - Team Members</div>
+            <div class="modal-text">
+                <p><strong>Project Lead:</strong></p>
+                <div class="team-member">
+                    <i class="fas fa-user-circle"></i>
+                    <span><strong>Anil Kumar Nayak</strong> - Project Manager</span>
+                </div>
+                <p style="margin-top: 20px;"><strong>Core Team:</strong></p>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Testing Coordinator</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Quality Assurance Lead</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Reporting Analyst</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Tester Network Manager</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="benchTeamModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('benchTeamModal')">&times;</span>
+            <div class="modal-title"><i class="fas fa-users"></i> Bench - Team Members</div>
+            <div class="modal-text">
+                <p><strong>Project Lead:</strong></p>
+                <div class="team-member">
+                    <i class="fas fa-user-circle"></i>
+                    <span><strong>Anil Kumar Nayak</strong> - Project Manager</span>
+                </div>
+                <p style="margin-top: 20px;"><strong>Core Team:</strong></p>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Data Engineer</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Analytics Lead</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Dashboard Developer</span>
+                </div>
+                <div class="team-member">
+                    <i class="fas fa-user"></i>
+                    <span>Performance Specialist</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showDetail(projectId) {
+            const modalMap = {
+                'bhim': 'bhimModal',
+                'iaap': 'iaapModal',
+                'crowdtesting': 'crowdtestingModal',
+                'bench': 'benchModal',
+                'bhim-detail': 'bhimDetailModal',
+                'iaap-detail': 'iaapDetailModal',
+                'crowdtesting-detail': 'crowdtestingDetailModal',
+                'bench-detail': 'benchDetailModal'
+            };
+            
+            const modalId = modalMap[projectId];
+            if (modalId) {
+                document.getElementById(modalId).style.display = 'block';
+            }
+        }
+        
+        function showTeam(projectId) {
+            const teamModalMap = {
+                'bhim': 'bhimTeamModal',
+                'iaap': 'iaapTeamModal',
+                'crowdtesting': 'crowdtestingTeamModal',
+                'bench': 'benchTeamModal'
+            };
+            
+            const modalId = teamModalMap[projectId];
+            if (modalId) {
+                document.getElementById(modalId).style.display = 'block';
+            }
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
