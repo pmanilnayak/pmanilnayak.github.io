@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anil Kumar Nayak - Project Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 600px;
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .profile-header {
+            margin-bottom: 40px;
+        }
+        
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .designation {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .contact-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .label {
+            color: #667eea;
+            font-weight: 600;
+            display: inline-block;
+            width: 120px;
+            text-align: right;
+            margin-right: 15px;
+        }
+        
+        .value {
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .phone-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .phone-link:hover {
+            color: #764ba2;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+        }
+        
+        .footer {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-avatar">AN</div>
+            <h1>Anil Kumar Nayak</h1>
+            <div class="designation">Project Manager</div>
+        </div>
+        
+        <div class="contact-section">
+            <div class="contact-item">
+                <span class="label">Mobile:</span>
+                <span class="value"><a href="tel:+917978954419" class="phone-link">+91 7978954419</a></span>
+            </div>
+            <div class="contact-item">
+                <span class="label">Email:</span>
+                <span class="value"><a href="mailto:pmanilnayak@gmail.com" class="phone-link">Get in Touch</a></span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Professional Portfolio - Actively Available</p>
+        </div>
+    </div>
+</body>
+</html>
