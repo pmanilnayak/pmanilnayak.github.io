@@ -55,10 +55,9 @@
         }
         
         .profile-avatar {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             margin: 0 auto 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -67,6 +66,15 @@
             color: white;
             font-weight: bold;
             box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+            border: 4px solid #667eea;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         h1 {
@@ -346,7 +354,16 @@
     <div class="container">
         <!-- Profile Section -->
         <div class="profile-section">
-            <div class="profile-avatar">AN</div>
+            <div class="profile-avatar">
+                <!-- Option 1: Use an image from URL -->
+                <img src="https://via.placeholder.com/120?text=AN&bg=667eea&color=ffffff" alt="Anil Kumar Nayak">
+                
+                <!-- Option 2: If you have an image file in your repo, use: -->
+                <!-- <img src="profile.jpg" alt="Anil Kumar Nayak"> -->
+                
+                <!-- Option 3: Use initials fallback (if image fails to load) -->
+                <!-- <span>AN</span> -->
+            </div>
             <h1>Anil Kumar Nayak</h1>
             <div class="designation">Project Manager</div>
             <div class="contact-section">
