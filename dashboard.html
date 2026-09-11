@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Dashboard - PM Anil Nayak</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .header-info h1 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .header-info p {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .header-date {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .nav-home {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .nav-home:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        /* Main Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Image Gallery Section */
+        .image-gallery {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-header h2 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .gallery-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 200px;
+            background: #f0f0f0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #ddd;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-size: 0.9em;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Bullet Points Section */
+        .highlights-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bullet-list {
+            list-style: none;
+        }
+
+        .bullet-item {
+            padding: 15px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        .bullet-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.15);
+        }
+
+        .bullet-icon {
+            color: #667eea;
+            font-size: 1.3em;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .bullet-content {
+            flex: 1;
+        }
+
+        .bullet-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 1em;
+        }
+
+        .bullet-description {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        /* Executive Summary Section */
+        .executive-summary {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            grid-column: 1 / -1;
+        }
+
+        .summary-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .summary-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .summary-header p {
+            opacity: 0.9;
+            font-size: 1em;
+        }
+
+        .summary-content {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .summary-card {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .summary-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .summary-icon {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .summary-number {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .summary-label {
+            color: #666;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        /* Daily Tasks Section */
+        .daily-tasks {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            grid-column: 1 / -1;
+            margin-bottom: 30px;
+        }
+
+        .tasks-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+        }
+
+        .tasks-header h2 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .tasks-content {
+            padding: 30px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .task-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.15);
+        }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #667eea;
+            border-radius: 50%;
+            margin-right: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .task-checkbox:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .task-details {
+            flex: 1;
+        }
+
+        .task-time {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 0.85em;
+        }
+
+        .task-description {
+            color: #333;
+            font-weight: 600;
+            margin-top: 3px;
+        }
+
+        .task-priority {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .priority-high {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .priority-medium {
+            background: #ffc93c;
+            color: white;
+        }
+
+        .priority-low {
+            background: #51cf66;
+            color: white;
+        }
+
+        /* Projects Links Section */
+        .projects-links {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            grid-column: 1 / -1;
+        }
+
+        .projects-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .projects-header h2 {
+            font-size: 1.5em;
+        }
+
+        .projects-grid {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .project-link-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-link-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .project-link-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .project-link-name {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .project-link-desc {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                margin-bottom: 15px;
+            }
+
+            .summary-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section-title i {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-left">
+                <div class="header-avatar">AN</div>
+                <div class="header-info">
+                    <h1>Anil Kumar Nayak</h1>
+                    <p>Project Manager Executive Dashboard</p>
+                    <p class="header-date" id="currentDate"></p>
+                </div>
+            </div>
+            <a href="index.html" class="nav-home">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+
+        <!-- Main Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Image Gallery Section -->
+            <div class="image-gallery">
+                <div class="gallery-header">
+                    <h2><i class="fas fa-images"></i> Project Gallery</h2>
+                    <p>Portfolio highlights and project visuals</p>
+                </div>
+                <div class="gallery-container">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="gallery-caption">BHIM - Payment Platform</div>
+                    </div>
+
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="gallery-caption">IAAP - Accessibility Program</div>
+                    </div>
+
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="gallery-caption">Crowdtesting - QA Platform</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights & Bullet Points -->
+            <div class="highlights-section">
+                <h3 class="section-title">
+                    <i class="fas fa-star"></i> Key Highlights
+                </h3>
+                <ul class="bullet-list">
+                    <li class="bullet-item">
+                        <div class="bullet-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="bullet-content">
+                            <div class="bullet-title">4 Active Projects</div>
+                            <div class="bullet-description">Managing BHIM, IAAP, Crowdtesting, and Bench projects simultaneously</div>
+                        </div>
+                    </li>
+                    <li class="bullet-item">
+                        <div class="bullet-icon"><i class="fas fa-users"></i></div>
+                        <div class="bullet-content">
+                            <div class="bullet-title">50+ Team Members</div>
+                            <div class="bullet-description">Coordinating cross-functional teams across multiple geographies</div>
+                        </div>
+                    </li>
+                    <li class="bullet-item">
+                        <div class="bullet-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="bullet-content">
+                            <div class="bullet-title">100% Delivery Rate</div>
+                            <div class="bullet-description">On-time and on-budget project completion track record</div>
+                        </div>
+                    </li>
+                    <li class="bullet-item">
+                        <div class="bullet-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="bullet-content">
+                            <div class="bullet-title">Continuous Growth</div>
+                            <div class="bullet-description">25% year-over-year improvement in project metrics</div>
+                        </div>
+                    </li>
+                    <li class="bullet-item">
+                        <div class="bullet-icon"><i class="fas fa-trophy"></i></div>
+                        <div class="bullet-content">
+                            <div class="bullet-title">Quality Excellence</div>
+                            <div class="bullet-description">Industry-leading quality standards with zero critical defects</div>
+                        </div>
+                    </li>
+                    <li class="bullet-item">
+                        <div class="bullet-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="bullet-content">
+                            <div class="bullet-title">Stakeholder Focus</div>
+                            <div class="bullet-description">Strong relationships with clients, partners, and internal teams</div>
+                        </div>
+                    </li>
+                    <li class="bullet-item">
+                        <div class="bullet-icon"><i class="fas fa-cogs"></i></div>
+                        <div class="bullet-content">
+                            <div class="bullet-title">Agile Methodology</div>
+                            <div class="bullet-description">Expert in Scrum, Kanban, and hybrid project management frameworks</div>
+                        </div>
+                    </li>
+                    <li class="bullet-item">
+                        <div class="bullet-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="bullet-content">
+                            <div class="bullet-title">Innovation & Leadership</div>
+                            <div class="bullet-description">Driving process improvements and mentoring junior project managers</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Executive Summary Section -->
+        <div class="executive-summary">
+            <div class="summary-header">
+                <h2><i class="fas fa-chart-pie"></i> Executive Summary</h2>
+                <p>Key Metrics & Project Performance Dashboard</p>
+            </div>
+            <div class="summary-content">
+                <div class="summary-card">
+                    <div class="summary-icon"><i class="fas fa-tasks"></i></div>
+                    <div class="summary-number">4</div>
+                    <div class="summary-label">Active Projects</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon"><i class="fas fa-users"></i></div>
+                    <div class="summary-number">50+</div>
+                    <div class="summary-label">Team Members</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon"><i class="fas fa-percent"></i></div>
+                    <div class="summary-number">100%</div>
+                    <div class="summary-label">Delivery Rate</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon"><i class="fas fa-star"></i></div>
+                    <div class="summary-number">4.8/5</div>
+                    <div class="summary-label">Quality Score</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="summary-number">25%</div>
+                    <div class="summary-label">Growth YoY</div>
+                </div>
+                <div class="summary-card">
+                    <div class="summary-icon"><i class="fas fa-calendar-check"></i></div>
+                    <div class="summary-number">150+</div>
+                    <div class="summary-label">Milestones Completed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daily Tasks Section -->
+        <div class="daily-tasks">
+            <div class="tasks-header">
+                <h2><i class="fas fa-list-check"></i> Today's Tasks & Activities</h2>
+            </div>
+            <div class="tasks-content">
+                <div class="task-item">
+                    <div class="task-checkbox">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                    <div class="task-details">
+                        <span class="task-time">9:00 AM</span>
+                        <div class="task-description">Team Standup Meeting - All Projects</div>
+                        <span class="task-priority priority-high">HIGH</span>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-checkbox">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                    <div class="task-details">
+                        <span class="task-time">10:30 AM</span>
+                        <div class="task-description">BHIM Project Review & Stakeholder Updates</div>
+                        <span class="task-priority priority-high">HIGH</span>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-checkbox">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                    <div class="task-details">
+                        <span class="task-time">1:00 PM</span>
+                        <div class="task-description">IAAP Accessibility Compliance Review</div>
+                        <span class="task-priority priority-medium">MEDIUM</span>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-checkbox">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                    <div class="task-details">
+                        <span class="task-time">2:30 PM</span>
+                        <div class="task-description">Crowdtesting Quality Metrics Analysis</div>
+                        <span class="task-priority priority-medium">MEDIUM</span>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-checkbox">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                    <div class="task-details">
+                        <span class="task-time">4:00 PM</span>
+                        <div class="task-description">Bench Performance Analytics Dashboard Update</div>
+                        <span class="task-priority priority-medium">MEDIUM</span>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-checkbox">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                    <div class="task-details">
+                        <span class="task-time">5:00 PM</span>
+                        <div class="task-description">Resource Planning & Capacity Assessment</div>
+                        <span class="task-priority priority-low">LOW</span>
+                    </div>
+                </div>
+
+                <div class="task-item">
+                    <div class="task-checkbox">
+                        <i class="fas fa-check" style="display: none;"></i>
+                    </div>
+                    <div class="task-details">
+                        <span class="task-time">6:00 PM</span>
+                        <div class="task-description">Daily Reports & Documentation</div>
+                        <span class="task-priority priority-low">LOW</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Links Section -->
+        <div class="projects-links">
+            <div class="projects-header">
+                <h2><i class="fas fa-link"></i> Quick Access to Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <a href="https://pmanilnayak.github.io/bhim" class="project-link-card" target="_blank">
+                    <div class="project-link-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="project-link-name">BHIM</div>
+                    <div class="project-link-desc">Digital Payment Platform</div>
+                </a>
+
+                <a href="https://pmanilnayak.github.io/iaap/" class="project-link-card" target="_blank">
+                    <div class="project-link-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="project-link-name">IAAP</div>
+                    <div class="project-link-desc">Accessibility Program</div>
+                </a>
+
+                <a href="https://pmanilnayak.github.io/crowdtesting" class="project-link-card" target="_blank">
+                    <div class="project-link-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="project-link-name">Crowdtesting</div>
+                    <div class="project-link-desc">QA Testing Platform</div>
+                </a>
+
+                <a href="https://pmanilnayak.github.io/bench/" class="project-link-card" target="_blank">
+                    <div class="project-link-icon"><i class="fas fa-chart-bar"></i></div>
+                    <div class="project-link-name">Bench</div>
+                    <div class="project-link-desc">Performance Analytics</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>✨ Executive Dashboard | Anil Kumar Nayak - Project Manager | <span id="yearSpan"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        function setCurrentDate() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const today = new Date();
+            document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', options);
+            document.getElementById('yearSpan').textContent = today.getFullYear();
+        }
+
+        // Task checkbox functionality
+        document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('click', function() {
+                this.parentElement.style.opacity = this.querySelector('i').style.display === 'none' ? '0.6' : '1';
+                this.querySelector('i').style.display = this.querySelector('i').style.display === 'none' ? 'flex' : 'none';
+            });
+        });
+
+        // Initialize
+        setCurrentDate();
+    </script>
+</body>
+</html>
