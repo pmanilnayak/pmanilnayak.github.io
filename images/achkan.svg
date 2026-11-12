@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+<title id="title">नीली पारंपरिक अचकन</title>
+<ellipse cx="100" cy="177" rx="58" ry="8" fill="#24508420"/>
+<path d="M70 42 46 55 27 91l22 12 13-21-5 75h86l-5-75 13 21 22-12-19-36-24-13-16 13H86z" fill="#4c83d6" stroke="#2857a1" stroke-width="5" stroke-linejoin="round"/>
+<path d="m78 45 22 17 22-17-11-15H89z" fill="#f2f6ff" stroke="#2857a1" stroke-width="4" stroke-linejoin="round"/>
+<path d="m100 62 8 8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8 8-8 8" fill="none" stroke="#f5cb59" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="91" cy="77" r="3" fill="#ffd96d"/><circle cx="91" cy="96" r="3" fill="#ffd96d"/><circle cx="91" cy="115" r="3" fill="#ffd96d"/><circle cx="91" cy="134" r="3" fill="#ffd96d"/>
+<path d="M43 91 55 97M157 97l-12-6" stroke="#f5cb59" stroke-width="4" stroke-linecap="round"/>
+</svg>

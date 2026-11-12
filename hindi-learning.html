@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8ed">
+  <meta name="description" content="बच्चों के लिए अ से अनार, अदरक, अचकन और अमरूद सीखने का मज़ेदार हिंदी पेज।">
+  <title>अ से सीखें! | बच्चों के लिए हिंदी</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #332b4b;
+      --muted: #6f6880;
+      --purple: #7654cf;
+      --paper: #fffdf9;
+      --shadow: 0 14px 34px rgba(67, 45, 98, .11);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: radial-gradient(circle at 8% 8%, #ffe6d8 0, transparent 26rem),
+                  radial-gradient(circle at 95% 24%, #e8e1ff 0, transparent 28rem), #fff8ed;
+      font-family: "Noto Sans Devanagari", "Mangal", "Kohinoor Devanagari", sans-serif;
+    }
+    .page { width: min(1120px, calc(100% - 32px)); margin: auto; padding: 38px 0 52px; }
+    header { text-align: center; margin: 0 auto 30px; max-width: 720px; }
+    .eyebrow { display: inline-block; padding: 7px 14px; border-radius: 999px; background: #fff; color: #7654cf; font-size: .95rem; font-weight: 800; box-shadow: 0 5px 16px #7654cf18; }
+    h1 { margin: 15px 0 7px; font-size: clamp(2.4rem, 7vw, 4.7rem); line-height: 1.15; letter-spacing: -.04em; }
+    h1 span { color: #e85d75; }
+    .intro { margin: 0; color: var(--muted); font-size: clamp(1rem, 2.5vw, 1.2rem); }
+    .cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .card { overflow: hidden; text-align: center; border: 2px solid #fff; border-radius: 26px; background: var(--paper); box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 19px 38px #432d621f; }
+    .picture { height: 190px; display: grid; place-items: center; margin: 10px 10px 0; border-radius: 19px; }
+    .picture img { width: 158px; height: 158px; object-fit: contain; }
+    .card:nth-child(1) .picture { background: #fff0ef; }
+    .card:nth-child(2) .picture { background: #fff4dc; }
+    .card:nth-child(3) .picture { background: #eaf3ff; }
+    .card:nth-child(4) .picture { background: #edfae9; }
+    .letter { margin: 17px 0 0; color: #7654cf; font-size: 1.05rem; font-weight: 800; }
+    .word { margin: 3px 0 0; font-size: clamp(1.7rem, 3vw, 2.2rem); line-height: 1.3; font-weight: 900; }
+    .pronunciation { margin: 4px 8px 0; color: var(--muted); font-family: system-ui, sans-serif; font-size: .98rem; }
+    .meaning { min-height: 26px; margin: 8px 0 16px; color: #4a435d; font-size: 1rem; }
+    .speak { display: inline-flex; gap: 8px; align-items: center; justify-content: center; margin: 0 0 20px; padding: 10px 17px; border: 0; border-radius: 999px; color: #fff; background: var(--purple); font: inherit; font-size: .98rem; font-weight: 800; cursor: pointer; transition: background .2s, transform .2s; }
+    .speak:hover { background: #5e3db5; transform: scale(1.04); }
+    .speak:focus-visible, .practice:focus-visible { outline: 3px solid #30215f; outline-offset: 3px; }
+    .sound { font-family: system-ui, sans-serif; }
+    .practice-wrap { margin-top: 30px; text-align: center; }
+    .practice { padding: 14px 24px; border: 0; border-radius: 16px; color: var(--ink); background: #ffe083; box-shadow: 0 7px 0 #e9bd50; font: inherit; font-size: 1.15rem; font-weight: 900; cursor: pointer; }
+    .practice:active { transform: translateY(3px); box-shadow: 0 4px 0 #e9bd50; }
+    #message { min-height: 32px; margin: 16px 0 0; color: #6848bd; font-size: 1.15rem; font-weight: 800; }
+    footer { margin-top: 30px; text-align: center; color: var(--muted); font-size: .95rem; }
+    @media (max-width: 850px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 440px) { .page { width: min(100% - 22px, 360px); padding-top: 25px; } .cards { gap: 12px; } .picture { height: 145px; margin: 7px 7px 0; } .picture img { width: 125px; height: 125px; } .meaning { font-size: .9rem; } .speak { padding: 9px 12px; font-size: .88rem; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <span class="eyebrow">🌈 आओ हिंदी सीखें</span>
+      <h1><span>अ</span> से सीखें!</h1>
+      <p class="intro">चित्र देखो, शब्द पढ़ो और सुनकर बोलो। चलो, मज़े से सीखें! ✨</p>
+    </header>
+
+    <section class="cards" aria-label="अ अक्षर से शुरू होने वाले शब्द">
+      <article class="card">
+        <div class="picture"><img src="images/anar.svg" alt="लाल अनार का चित्र"></div>
+        <p class="letter">अ से</p><h2 class="word" lang="hi">अनार</h2>
+        <p class="pronunciation" lang="en">uh-naar · anaar</p><p class="meaning">🔴 लाल और मीठा फल</p>
+        <button class="speak" type="button" data-word="अनार"><span class="sound" aria-hidden="true">🔊</span> सुनो: अनार</button>
+      </article>
+      <article class="card">
+        <div class="picture"><img src="images/adrak.svg" alt="अदरक की जड़ का चित्र"></div>
+        <p class="letter">अ से</p><h2 class="word" lang="hi">अदरक</h2>
+        <p class="pronunciation" lang="en">uh-duh-ruk · adarak</p><p class="meaning">🫚 चाय में पड़ने वाली जड़</p>
+        <button class="speak" type="button" data-word="अदरक"><span class="sound" aria-hidden="true">🔊</span> सुनो: अदरक</button>
+      </article>
+      <article class="card">
+        <div class="picture"><img src="images/achkan.svg" alt="सुनहरी बटन वाली नीली अचकन का चित्र"></div>
+        <p class="letter">अ से</p><h2 class="word" lang="hi">अचकन</h2>
+        <p class="pronunciation" lang="en">uh-chuh-kun · achakan</p><p class="meaning">👑 एक सुंदर पारंपरिक पोशाक</p>
+        <button class="speak" type="button" data-word="अचकन"><span class="sound" aria-hidden="true">🔊</span> सुनो: अचकन</button>
+      </article>
+      <article class="card">
+        <div class="picture"><img src="images/amrud.svg" alt="हरा अमरूद और उसका आधा कटा टुकड़ा"></div>
+        <p class="letter">अ से</p><h2 class="word" lang="hi">अमरूद</h2>
+        <p class="pronunciation" lang="en">uh-muh-rood · amrood</p><p class="meaning">🍈 कुरकुरा और स्वादिष्ट फल</p>
+        <button class="speak" type="button" data-word="अमरूद"><span class="sound" aria-hidden="true">🔊</span> सुनो: अमरूद</button>
+      </article>
+    </section>
+
+    <div class="practice-wrap">
+      <button class="practice" id="practice" type="button">🎲 चलो, दोहराएँ!</button>
+      <p id="message" aria-live="polite">अ से अनार! 👏</p>
+    </div>
+    <footer>बहुत खूब! आज तुमने अ से चार नए शब्द सीखे। 🌟</footer>
+  </main>
+  <script>
+    const words = ['अनार', 'अदरक', 'अचकन', 'अमरूद'];
+    const message = document.getElementById('message');
+    function speakWord(word) {
+      if (!('speechSynthesis' in window)) {
+        message.textContent = `बोलो: ${word} — ${word}!`;
+        return;
+      }
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = 'hi-IN';
+      utterance.rate = 0.78;
+      window.speechSynthesis.speak(utterance);
+      message.textContent = `सुनो और बोलो: ${word}! 🗣️`;
+    }
+    document.querySelectorAll('.speak').forEach(button => {
+      button.addEventListener('click', () => speakWord(button.dataset.word));
+    });
+    document.getElementById('practice').addEventListener('click', () => {
+      const word = words[Math.floor(Math.random() * words.length)];
+      speakWord(word);
+    });
+  </script>
+</body>
+</html>

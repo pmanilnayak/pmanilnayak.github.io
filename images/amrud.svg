@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+<title id="title">हरा अमरूद और कटा हुआ अमरूद</title>
+<ellipse cx="100" cy="172" rx="62" ry="9" fill="#39833b20"/>
+<path d="M69 56c13-19 26-18 33-10 15-11 32-2 35 12 25 2 38 24 30 48-10 30-42 51-75 48-37-4-62-27-56-57 3-17 16-31 33-41z" fill="#8acb62" stroke="#529b46" stroke-width="4"/>
+<path d="M93 48c2-19 16-29 34-28-10 10-13 20-11 31" fill="#438e48" stroke="#367d3d" stroke-width="4" stroke-linejoin="round"/>
+<path d="M113 119c8-17 25-26 43-22 15 4 22 19 16 34-8 18-28 30-48 26-17-4-21-21-11-38z" fill="#f7edc1" stroke="#569a45" stroke-width="8"/>
+<path d="M131 115c9-7 22-8 30-2 8 7 3 18-6 24-10 8-23 9-29 2-5-7-2-17 5-24z" fill="#ffc6a5"/>
+<g fill="#d69a58"><ellipse cx="139" cy="124" rx="2" ry="4"/><ellipse cx="150" cy="119" rx="2" ry="4"/><ellipse cx="158" cy="128" rx="2" ry="4"/><ellipse cx="145" cy="137" rx="2" ry="4"/><ellipse cx="159" cy="139" rx="2" ry="4"/></g>
+<path d="M72 72c-9 7-14 16-15 25" fill="none" stroke="#c5e99a" stroke-width="6" stroke-linecap="round"/>
+</svg>
